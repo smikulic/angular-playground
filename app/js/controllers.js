@@ -17,4 +17,11 @@ bookATigerApp.controller('BookingStepsCtrl', function ($scope) {
   $scope.setActive = function(index) {
     $scope.selected = index;
   };
+
+  $scope.bookingOrder = {};
+
+  $scope.updateBooking = function(booking, nextStep) {
+    $scope.bookingOrder = angular.copy(booking);
+    $scope.setActive(nextStep);
+  };
 });
