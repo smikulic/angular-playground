@@ -2,26 +2,32 @@ var bookATigerApp = angular.module('bookATigerApp', []);
 
 bookATigerApp.controller('BookingStepsCtrl', function ($scope) {
   $scope.steps = [
-    {'name': 'Date and zip code',
-     'snippet': 'Fast just got faster with Nexus S.'},
-    {'name': 'Clening details',
-     'snippet': 'The Next, Next Generation tablet.'},
-    {'name': 'Address',
-     'snippet': 'The Next, Next Generation tablet.'},
-     {'name': 'Payment',
-      'snippet': 'The Next, Next Generation tablet.'}
+    {'name': 'Date and zip code'},
+    {'name': 'Cleaning details'},
+    {'name': 'Address'},
+    {'name': 'Payment'}
   ];
-
+  $scope.frequencyOptions = [
+    {'name': 'once', 'price': '14,90', 'bestseller': false},
+    {'name': 'weekly','price': '13,90', 'bestseller': true},
+    {'name': 'every 2 weeks','price': '13,90', 'bestseller': false},
+    {'name': 'every 4 weeks','price': '13,90', 'bestseller': false}
+  ];
   $scope.selected = 0;
-
-  $scope.setActive = function(index) {
-    $scope.selected = index;
-  };
-
-  $scope.bookingOrder = {};
+  $scope.openFrequencySelector = false;
 
   $scope.updateBooking = function(booking, nextStep) {
-    $scope.bookingOrder = angular.copy(booking);
-    $scope.setActive(nextStep);
+    $scope.selected = nextStep;
+    console.log(booking)
   };
+
+  $scope.toggleFrequencySelect = function() {
+    $scope.openFrequencySelector = !$scope.openFrequencySelector;
+  }
+
+  $scope.selectFrequency = function(booking, frequency) {
+    $scope.booking.frequency = frequency;
+    $scope.toggleFrequencySelect();
+    console.log(booking)
+  }
 });
