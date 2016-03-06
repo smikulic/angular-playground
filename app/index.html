@@ -44,9 +44,10 @@
 
           <div class="pure-u-1 pure-u-md-1-2">
             <select id="time" class="pure-u-1 pure-u-md-4-5" ng-model="booking.time">
-              <option>8.00h</option>
-              <option>12.00h</option>
-              <option>18.00h</option>
+              <option>8 AM</option>
+              <option>10 AM</option>
+              <option>12 PM</option>
+              <option>4 PM</option>
             </select>
             <label for="flexible" class="pure-checkbox">
               <input id="flexible" type="checkbox" ng-model="booking.flexible"> I can be flexible with time
@@ -103,11 +104,41 @@
               </li>
             </ul>
           </div>
-          
         </div>
+
+        <div class="pure-g offer-details" ng-show="(offerDetails)">
+          <div class="pure-u-1">
+            <h2>Your individual price offer <i class="fa fa-question-circle fa-x2"></i></h2>
+
+            <div class="pure-u-1-2 pure-u-md-1-4"
+            ng-repeat="offer in offers">
+              <div class="offer">
+                <div>{{offer.name}}</div>
+                <div>{{offer.price}} €/h</div>
+                <div>
+                  <input type="radio" name="pricing" ng-checked="($index == pricingSelected)"
+                  ng-click="changePricing($index)">
+                </div>
+              </div>
+            </div>
+
+            <div class="pure-u-1">
+              <div ng-repeat="offer in offers" ng-show="($index == pricingSelected)">
+                <i class="fa fa-thumbs-up fa-3x"></i> {{offer.description}}
+              </div>
+            </div>
+
+            <div class="pure-u-1">
+              <strong>Our service: </strong> We will contact you before your booking to arrange all details.
+            </div>
+
+          </div>
+        </div>
+
         <div class="pure-g">
           <div class="pure-u-1 pure-u-md-1-2">
-            <button type="submit" class="pure-button pure-button-primary pure-button-disabled">Next</button>
+            <button type="submit" class="pure-button pure-button-primary"
+            ng-click="done(booking)">Next</button>
           </div>
           <div class="pure-u-1 pure-u-md-1-2">
             <button type="submit" class="pure-button pure-button" ng-click="updateBooking(booking, 0)">Go back</button>

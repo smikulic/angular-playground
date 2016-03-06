@@ -1,11 +1,10 @@
-* {
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-}
-
 /*
  * -- BASE STYLES -- */
+ * {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
 html {
   height: 100vh;
   background-color: #FBFBFB;
@@ -20,15 +19,8 @@ body {
   margin: 0 auto;
 }
 
-.pure-img-responsive {
-    max-width: 100%;
-    height: auto;
-}
-
 /*
- * -- PURE FORM STYLES --
- * Style the form inputs and labels
- */
+ * -- PURE FORM STYLES -- */
 .pure-form legend {
   font-size: 20px;
   color: #535353;
@@ -80,10 +72,15 @@ body {
 .dropdown li .bestseller {
   z-index: 1;
   position: absolute;
-  bottom: -17px;
+  bottom: -16px;
   left: 18px;
   font-size: 8px;
   color: #FE3939;
+}
+.dropdown li .bestseller i {
+  position: relative;
+  top: 2px;
+  font-size: 10px;
 }
 .dropdown li:hover {
   outline: 1px solid #eee;
@@ -105,7 +102,6 @@ body {
   color: white;
   border-radius: 3px;
 }
-
 
 /*
  * -- MENU STYLES -- */
@@ -148,10 +144,7 @@ body {
 
 
 /*
- * -- TABLET (AND UP) MEDIA QUERIES --
- * On tablets and other medium-sized devices, we want to customize some
- * of the mobile styles.
- */
+ * -- TABLET (AND UP) MEDIA QUERIES -- */
 @media (min-width: 48em) {
 
   body {
@@ -160,16 +153,6 @@ body {
   .main-content {
     width: 80%;
   }
-
-  /* We can align the menu header to the left, but float the
-  menu items to the right. */
-  .home-menu {
-    text-align: left;
-  }
-  .home-menu ul {
-    float: right;
-  }
-
   .home-menu .step-marker {
     display: inline-block;
   }
@@ -199,4 +182,25 @@ body {
   left: 0;
   top: 0;
   transition: width 0.3s ease-in-out;
+}
+
+/* Offer details */
+.offer-details {
+  padding: 15px; 
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+.offer {
+  margin: 0 10px;
+  padding: 5px;
+  height: 100px;
+  text-align: center;
+  border: 1px solid #FE3939;
+}
+.offer-details .pure-u-1 {
+  margin-top: 15px;
+}
+.offer-details .fa-thumbs-up {
+  color: #FE3939;
 }
