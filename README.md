@@ -1,3 +1,2 @@
-# booking
+# Angular playground - step by step booking
 
-Coding challenge
